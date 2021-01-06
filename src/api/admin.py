@@ -1,3 +1,5 @@
 from django.contrib import admin
+from api.models import Car, CarRate
 
-# Register your models here.
+admin.site.register(Car)
+admin.site.register(CarRate)
