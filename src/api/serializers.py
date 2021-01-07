@@ -32,31 +32,32 @@ def _validate_model(make, model):
     results = response.json().get('Results')
 
     for result in results:
+        # Looking for a model in response
         if result.get('Model_Name').lower() == model.lower():
-            # Looking for a model in response
             return model
 
     raise ValidationError(_(f"there is no such a model: '{model}'"))
 
 
 class CarSerializer(serializers.ModelSerializer):
-    def validate(self, data):
-        make = data['make']
-        model = data['model']
+    def validate(self, attrs):
+        make = attrs['make']
+        model = attrs['model']
         _validate_make(make)
         _validate_model(make, model)
-        return data
+        return attrs
 
     class Meta:
         model = Car
         fields = "__all__"
 
 
-class RateSerializer(serializers.ModelSerializer):
+class CarRateSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         rate = attrs['rate']
         if rate < 1 or rate > 5:
             raise ValidationError(_("rate value should be in range from 1 to 5"))
+        return attrs
 
     class Meta:
         model = CarRate
