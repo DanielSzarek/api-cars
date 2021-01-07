@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
-from models import Car, CarRate
+from api.models import Car, CarRate
 
 
 class CarsApiTestCase(APITestCase):
@@ -25,7 +25,7 @@ class CarsApiTestCase(APITestCase):
         }
 
         response = self.client.post(self.cars_url, data=data)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_dont_add_car_twice(self):
         data = {
@@ -52,12 +52,14 @@ class RateApiTestCase(APITestCase):
         self.rates_url = '/rate'
         self.popular_url = '/popular'
 
-        Car.objects.create(make="MAZDA", model="RX-8")
-        Car.objects.create(make="AUDI", model="RS8")
+        cars = [
+            Car.objects.create(make="MAZDA", model="RX-8"),
+            Car.objects.create(make="AUDI", model="RS8")
+        ]
 
-        CarRate.objects.create(car=Car.objects.get(1), rate=4)
-        CarRate.objects.create(car=Car.objects.get(1), rate=3)
-        CarRate.objects.create(car=Car.objects.get(2), rate=5)
+        CarRate.objects.create(car=cars[0], rate=4)
+        CarRate.objects.create(car=cars[0], rate=3)
+        CarRate.objects.create(car=cars[1], rate=5)
 
     def test_add_new_rate(self):
         data = {
