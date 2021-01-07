@@ -131,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+VPIC_API_URL = os.environ.get("VPIC_API_URL", default="https://vpic.nhtsa.dot.gov/api/vehicles")
