@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import ValidationError
 
-from api.models import Car
+from api.models import Car, CarRate
 
 
 def _validate_make(make):
@@ -17,12 +17,11 @@ def _validate_make(make):
     results = response.json().get('Results')
 
     for result in results:
-        # Looking for make in response
+        # Looking for a make in response
         if result.get('MakeName').upper() == make.upper():
             return make
 
-    message = _(f"There is no such a make: '{make}'")
-    raise ValidationError(message)
+    raise ValidationError(_(f"there is no such a make: '{make}'"))
 
 
 def _validate_model(make, model):
@@ -37,8 +36,7 @@ def _validate_model(make, model):
             # Looking for a model in response
             return model
 
-    message = _(f"There is no such a model: '{model}'")
-    raise ValidationError(message)
+    raise ValidationError(_(f"there is no such a model: '{model}'"))
 
 
 class CarSerializer(serializers.ModelSerializer):
@@ -51,4 +49,15 @@ class CarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Car
+        fields = "__all__"
+
+
+class RateSerializer(serializers.ModelSerializer):
+    def validate(self, attrs):
+        rate = attrs['rate']
+        if rate < 1 or rate > 5:
+            raise ValidationError(_("rate value should be in range from 1 to 5"))
+
+    class Meta:
+        model = CarRate
         fields = "__all__"
