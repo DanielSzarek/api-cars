@@ -13,7 +13,6 @@ class CarView(generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         queryset = Car.objects.all()
-        print(queryset)
         serializer = CarAvgRateSerializer(queryset, many=True)
         return Response(serializer.data)
 
