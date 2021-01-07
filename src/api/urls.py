@@ -5,4 +5,5 @@ from api import views
 urlpatterns = [
     path('cars', views.CarView.as_view()),
     path('rate', views.CarRateView.as_view()),
+    path('popular', views.CarPopularityView.as_view())
 ]

@@ -11,7 +11,7 @@ class Car(models.Model):
         unique_together = ("make", "model",)
 
     def __str__(self):
-        return f"{self.make} {self.model}"
+        return f"{self.pk}. {self.make} {self.model}"
 
     @property
     def avg_rate(self):
@@ -26,4 +26,4 @@ class CarRate(models.Model):
         db_table = "car_rate"
 
     def __str__(self):
-        return f"{self.car}: {self.rate}"
+        return f"{self.pk}. {self.car}: {self.rate}"
