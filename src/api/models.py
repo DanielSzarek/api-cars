@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 
 
 class Car(models.Model):
@@ -11,6 +12,10 @@ class Car(models.Model):
 
     def __str__(self):
         return f"{self.make} {self.model}"
+
+    @property
+    def avg_rate(self):
+        return self.carrate_set.aggregate(avg_rate=Avg('rate'))['avg_rate']
 
 
 class CarRate(models.Model):

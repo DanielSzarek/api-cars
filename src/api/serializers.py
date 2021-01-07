@@ -62,3 +62,11 @@ class CarRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = CarRate
         fields = "__all__"
+
+
+class CarAvgRateSerializer(serializers.Serializer):
+    # TODO try with car = CarSerializer()
+    id = serializers.ReadOnlyField()
+    make = serializers.CharField(max_length=100)
+    model = serializers.CharField(max_length=100)
+    avg_rate = serializers.DecimalField(max_digits=2, decimal_places=1, max_value=5, min_value=1)
