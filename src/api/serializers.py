@@ -65,7 +65,6 @@ class CarRateSerializer(serializers.ModelSerializer):
 
 
 class CarAvgRateSerializer(serializers.Serializer):
-    # TODO try with car = CarSerializer()
     id = serializers.ReadOnlyField()
     make = serializers.CharField(max_length=100)
     model = serializers.CharField(max_length=100)
