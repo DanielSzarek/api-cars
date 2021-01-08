@@ -15,8 +15,13 @@ To create your own instance with docker: [Run](#Run)
 For more information about API and used technologies: [Information](#Information)
 
 ## Links
-`<API-Doc>` : https://redoc/ <br />
-`<swagger>` : https://swagger/
+`<API-Doc>` : https://nameless-brushlands-31499.herokuapp.com/redoc/ <br />
+`<swagger>` : https://nameless-brushlands-31499.herokuapp.com/swagger/
+
+`<GET/POST /cars>` : https://nameless-brushlands-31499.herokuapp.com/cars <br />
+`<POST /rate>` : https://nameless-brushlands-31499.herokuapp.com/rate <br />
+`<GET /popular>` : https://nameless-brushlands-31499.herokuapp.com/popular
+
 
 ## Run
 
@@ -64,4 +69,5 @@ Libraries used in the app:
 * [Requests](https://pypi.org/project/requests/) - easy to use module for sending requests (I used it to connect with https://vpic.nhtsa.dot.gov/api/)
 * [drf-yasg](https://drf-yasg.readthedocs.io/en/stable/) - for me it is the best option for API documentation and for easy testing. Everytime when I work with people who will need my API I show them swagger and show how to use it.
 * [psycopg2](https://pypi.org/project/psycopg2/) - the most popular PostreSQL database adapter. I chose postgres, because I use it everyday at my current work and I got to know well with that database.
-
+* [gunicorn](https://gunicorn.org/) - Heroku use gunicorn to host our app with Python WSGI HTTP Server
+* [WhiteNoise](http://whitenoise.evans.io/en/stable/) - whitenoise also was needed for Heroku, it helps serving staticfiles
