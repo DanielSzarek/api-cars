@@ -10,7 +10,7 @@ API contains 4 enpoints:
 
 To quickly test API, please check out the [Links](#Links)
 
-To create your own instance with docker: [Run with docker](#Run with docker)
+To create your own instance with docker: [Run](#Run)
 
 For more information about API and used technologies: [Information](#Information)
 
@@ -18,7 +18,7 @@ For more information about API and used technologies: [Information](#Information
 `<API-Doc>` : https://redoc/ <br />
 `<swagger>` : https://swagger/
 
-## Run with docker
+## Run
 
 ### Requirements
 `<Docker>` : https://docs.docker.com/engine/install/ubuntu/ <br />
@@ -52,9 +52,9 @@ List of env variables with short description :
 
 
 ### Unit tests
-I prepared some unit tests (using TDD).
+I prepared some unit tests (with TDD). I used build in django tests module.
 
-Run tests: *_sudo docker-compose exec web python src/manage.py test api_*
+Run tests: ***sudo docker-compose exec web python src/manage.py test api***
 
 ## Information
 As it had been written in the task, app was created in Python with my favourite web framework - Django.
