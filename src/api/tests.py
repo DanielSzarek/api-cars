@@ -1,3 +1,4 @@
+from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
@@ -5,9 +6,9 @@ from api.models import Car, CarRate
 
 
 class CarsApiTestCase(APITestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.client = APIClient()
-        self.cars_url = '/cars'
+        self.cars_url = reverse('cars')
 
         car = Car.objects.create(make="MAZDA", model="RX-6")
         self.cars_amount = Car.objects.all().count()
@@ -73,8 +74,8 @@ class CarsApiTestCase(APITestCase):
 class RateApiTestCase(APITestCase):
     def setUp(self) -> None:
         self.client = APIClient()
-        self.rates_url = '/rate'
-        self.popular_url = '/popular'
+        self.rates_url = reverse('rate')
+        self.popular_url = reverse('popular')
 
         self.cars = [
             Car.objects.create(make="MAZDA", model="RX-8"),
