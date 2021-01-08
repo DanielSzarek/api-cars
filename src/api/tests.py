@@ -97,7 +97,7 @@ class RateApiTestCase(APITestCase):
     def test_add_new_rate(self):
         data = {
             'car': 1,
-            'rate': 5
+            'rate': 4
         }
 
         response = self.client.post(self.rates_url, data=data)

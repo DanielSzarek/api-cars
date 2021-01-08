@@ -15,6 +15,7 @@ class Car(models.Model):
 
     @property
     def avg_rate(self):
+        """Get average of all rates of car i CarRate"""
         return self.carrate_set.aggregate(avg_rate=Avg('rate'))['avg_rate']
 
 
