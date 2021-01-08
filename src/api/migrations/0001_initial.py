@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('rate', models.PositiveSmallIntegerField()),
-                ('car', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.car')),
+                ('car', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='src.api.car')),
             ],
             options={
                 'db_table': 'car_rate',
