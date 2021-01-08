@@ -95,8 +95,9 @@ class RateApiTestCase(APITestCase):
         self.rates_amount = CarRate.objects.all().count()
 
     def test_add_new_rate(self):
+        car_id = self.cars[0].id
         data = {
-            'car': 1,
+            'car': car_id,
             'rate': 4
         }
 
