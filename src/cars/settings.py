@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my apps
-    'api',
+    'src.api',
 
     # 3-rd party
     'rest_framework',
