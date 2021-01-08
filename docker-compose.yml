@@ -1,12 +1,13 @@
 version: '3.8'
 
-service:
+services:
   web:
-    build: ./cars
+    build: .
     command: bash -c "
-      python3 /cars/src/manage.py runserver 0.0.0.0:8000"
+      python ./src/manage.py migrate &&
+      python ./src/manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/cars
+      - .:/src/cars
     ports:
       - 8000:8000
     env_file:
