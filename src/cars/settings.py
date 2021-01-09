@@ -124,8 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-if os.environ.get("DEBUG", False):
+DEBUG = os.environ.get("DEBUG", 0)
+if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
