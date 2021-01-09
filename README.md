@@ -46,9 +46,9 @@ You can find them in _.env.dev_ file. ****Defualt values are prepared for devs n
 
 List of env variables with short description :
 * DEBUG - 1 for true, 0 for false
-* SECRET_KEY - Key that helps pbkdf2 algorithm keep passwords safety
+* SECRET_KEY - Key that helps pbkdf2 algorithm keep passwords safely
 * DJANGO_ALLOWED_HOSTS - hosts that can use an app (like 127.0.0.1)
-* SQL_ENGINE - Which database do we use (for it is postgres - django.db.backends.postgresql)
+* SQL_ENGINE - Database engine (for postgres - django.db.backends.postgresql)
 * SQL_DATABASE - Database name
 * SQL_USER - Database user
 * SQL_PASSWORD - User password
