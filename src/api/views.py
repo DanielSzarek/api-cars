@@ -2,8 +2,8 @@ from django.db.models import Count
 from rest_framework import generics
 from rest_framework.response import Response
 
-from src.api.serializers import CarSerializer, CarRateSerializer, CarAvgRateSerializer
-from src.api.models import Car, CarRate
+from api.serializers import CarSerializer, CarRateSerializer, CarAvgRateSerializer
+from api.models import Car, CarRate
 
 
 class CarView(generics.ListCreateAPIView):

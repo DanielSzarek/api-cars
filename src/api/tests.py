@@ -2,7 +2,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 
-from src.api.models import Car, CarRate
+from api.models import Car, CarRate
 
 
 class CarsApiTestCase(APITestCase):

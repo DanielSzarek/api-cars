@@ -17,6 +17,8 @@ from django.core.management.utils import get_random_secret_key
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+VPIC_API_URL = os.environ.get("VPIC_API_URL", default="https://vpic.nhtsa.dot.gov/api/vehicles")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -35,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my apps
-    'src.api',
+    'api',
 
     # 3-rd party
     'rest_framework',
@@ -53,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'src.cars.urls'
+ROOT_URLCONF = 'cars.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'src.cars.wsgi.application'
+WSGI_APPLICATION = 'cars.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -122,12 +124,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+if os.environ.get("DEBUG", False):
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
 }
-VPIC_API_URL = os.environ.get("VPIC_API_URL", default="https://vpic.nhtsa.dot.gov/api/vehicles")

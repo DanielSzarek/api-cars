@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import ValidationError
 
-from src.api.models import Car, CarRate
+from api.models import Car, CarRate
 
 
 def _validate_make(make):

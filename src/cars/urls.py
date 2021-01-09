@@ -17,7 +17,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('', include('src.api.urls')),
+    path('', include('api.urls')),
     path('admin/', admin.site.urls),
 
     # Swagger (drf-yasg)
