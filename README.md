@@ -5,8 +5,8 @@ Netguru recruitment task - REST API for cars.
 API contains 4 enpoints:
 * GET /cars - get cars from application database with their current average rate
 * POST /cars - add a new car, but only if car exists in: https://vpic.nhtsa.dot.gov/api/
-* POST /rate - add a new rate for cat with values from 1 to 5
-* GET /popular - get cars from application database order by number of rates
+* POST /rate - add a new rate for a car with values from 1 to 5
+* GET /popular - get cars from application database ordered by number of rates
 
 To quickly test API, please check out the [Links](#Links)
 
@@ -31,14 +31,14 @@ For more information about API and used technologies: [Information](#Information
 
 ### Quick Run
 1. Clone or Download code form this repo
-2. Move to the catalog with Dockerfile and docker-compose.yml
+2. Move to the root catalog with Dockerfile and docker-compose.yml
 3. Run: ***sudo docker build .***
 4. Run: ***sudo docker-compose up***
 5. The application will be serving on __127.0.0.1:8000__
 
 Now you are ready to try it out!
 
-If you do not have a Docker but you want to quickly get it running - just use a typical python venv and install modules from requirements.txt, given in main catalog.
+If you do not have a Docker but you want to quickly get it running - just use a typical python venv and install modules from requirements.txt, given in root catalog.
 
 ### Env configuration
 There is a list of environment variables, that app is using and you may change them.
